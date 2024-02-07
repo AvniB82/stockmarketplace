@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Navbar from './components/navbar';
 import { getStockData } from './utils/stockapi'; 
+import SearchBox from './components/SearchBox';
 
 function App() {
   useEffect(() => {
@@ -21,6 +22,7 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
+        <SearchBox/>
       </div>
     </Router>
   );

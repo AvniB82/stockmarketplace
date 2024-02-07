@@ -1,0 +1,22 @@
+.form {
+    margin: 500px;
+    display:flexbox;
+    margin-top: 50px;
+    
+  }
+  
+  .form input {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 130%;
+  }
+
+  .button {
+    display:flex;
+    margin:20px;
+    right: 20px;
+    font-size: large;
+    
+  }
+  
