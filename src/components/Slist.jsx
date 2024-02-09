@@ -1,12 +1,11 @@
 import React from 'react'
 
-export default function Slist({list}) {
+export default function Slist() {
+  const {symbols} = useContext(DataCtxt);
+
   return (
     <div>
-
-      <div>
-     {/*    {list} */}
-      </div>
+      {symbols.length >= 1 ? ({symbols}):(<p>nothing has been found</p>)}
     </div>
   )
 }

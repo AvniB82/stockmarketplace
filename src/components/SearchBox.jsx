@@ -6,36 +6,23 @@ import { useContext } from 'react';
 import { DataCtxt } from '../components/datacontext'; 
 
 function Form() {
-  const { setSymb } = useContext(DataCtxt);
-
-  const [formData, setFormData] = useState({
-    searchBox: '',
-  });
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-
-    console.log(name);
-    console.log(value);
-
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+  const { setSymb, fetchSymbols } = useContext(DataCtxt);
+  const [first, setfirst] = useState('')
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    setSymb(formData.searchBox);
+    setSymb();
+    console.log('this is the symbol', first)
+    fetchSymbols(first);
   };
 
   return (
     <div>
       <form className="form">
         <input
-          value={formData.searchBox}
+          value={first}
           name="searchBox"
-          onChange={handleInputChange}
+          onChange={(e)=> setfirst(e.target.value)}
           type="text"
           placeholder="Search by symbol or name"
         />
