@@ -7,5 +7,9 @@ const getStockData = async (symbol) => {
   return axios.get(apiUrl);
 };
 
+const getStockSymbols = async (query) => {
+  const apiUrl = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${query}&apikey=${API_KEY}`;
+  return axios.get(apiUrl);
+};
 
-export { getStockData };
+export { getStockData, getStockSymbols };

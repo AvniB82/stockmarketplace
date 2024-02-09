@@ -1,39 +1,40 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Navbar from './components/navbar';
-import { getStockData } from './utils/stockapi'; 
+import { getStockData } from './utils/stockapi';
 import SearchBox from './components/SearchBox';
 import Slist from './components/Slist';
+import { DataCtxt } from './components/datacontext'; 
 
 function App() {
-  const [first, setfirst] = useState(null)
-  
+  const { symb } = useContext(DataCtxt); 
+  const [stockData, setStockData] = useState(null);
+
   useEffect(() => {
     const fetchDataAndLog = async () => {
       try {
-        const data = await getStockData('AAPL');
-        console.log(data);
-        const res = await setfirst(data.data)
+        if (symb) {
+          const data = await getStockData(symb);
+          console.log(data);
+          setStockData(data.data);
+        }
       } catch (error) {
         console.error(error);
       }
     };
 
     fetchDataAndLog();
-  }, []); 
+  }, [symb]);
 
   return (
     <Router>
       <div className="App">
         <Navbar />
-        <SearchBox/>
-      {first ? (<div><Slist list={first}/></div>):(<><p>empty</p></>)}
+        <SearchBox />
+        {stockData ? <div><Slist list={stockData} /></div> : <><p>empty</p></>}
       </div>
-      
-      
     </Router>
   );
 }
 
 export default App;
-
