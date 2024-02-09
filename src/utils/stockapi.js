@@ -9,6 +9,3 @@ const getStockData = async (symbol) => {
 
 
 export { getStockData };
-
-
-
