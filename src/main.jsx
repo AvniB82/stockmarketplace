@@ -7,6 +7,9 @@ import * as bootstrap from 'bootstrap';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <DataContext>
+      
     <App />
+      </DataContext>    
   </React.StrictMode>,
 )
