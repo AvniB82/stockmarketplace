@@ -8,8 +8,8 @@ export default function Slist() {
   return (
     <div>
       {symbols ? symbols.map((stock)=> {
-        <p>{stock.symbol}</p>
-      }) : 'no data'}
+<stockapicards stock={stock} />
+}) : 'no data'}
       <p>Placeholder</p>
     </div>
   )
