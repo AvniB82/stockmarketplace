@@ -1,11 +1,16 @@
-import React from 'react'
+import React from 'react';
+import { DataCtxt } from './datacontext';
 
 export default function Slist() {
-  const {symbols} = useContext(DataCtxt);
+  const {symbols} = React.useContext(DataCtxt);
+  console.log(symbols, 'sumsum');
 
   return (
     <div>
-      {symbols.length >= 1 ? ({symbols}):(<p>nothing has been found</p>)}
+      {symbols ? symbols.map((stock)=> {
+        <p>{stock.symbol}</p>
+      }) : 'no data'}
+      <p>balls</p>
     </div>
   )
 }

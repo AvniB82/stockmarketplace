@@ -1,45 +1,36 @@
 import React, { useState } from 'react';
-import './searchbox.css';
+
+
+import { useContext } from 'react';
+import { DataCtxt } from '../components/datacontext'; 
 
 function Form() {
+  const { setSymb, fetchSymbols } = useContext(DataCtxt);
+  const [first, setfirst] = useState('')
 
-    const [formData, setFormData] = useState({
-        searchBox: '',
-    });
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    /* setSymb(); */
 
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        console.log(value)
+    fetchSymbols(first);
+  };
 
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    };
-
-    const handleFormSubmit = (event) => {
-        event.preventDefault();
-
-
-    }
-
-    return (
-        <div>
-            <form className="form">
-                <input
-                    value={formData.searchBox}
-                    name="searchBox"
-                    onChange={handleInputChange}
-                    type="text"
-                    placeholder="Search by symbol or name"
-
-                />
-                <button type="button" onclick={handleFormSubmit}>
-                    Search
-                </button>
-            </form>
-        </div>
-    );
+  return (
+    <div>
+      <form className="form">
+        <input
+          value={first}
+          name="searchBox"
+          onChange={(e)=> setfirst(e.target.value)}
+          type="text"
+          placeholder="Search by symbol or name"
+        />
+        <button type="button" onClick={handleFormSubmit}>
+          Search
+        </button>
+      </form>
+    </div>
+  );
 }
 
 export default Form;

@@ -6,12 +6,15 @@ const DataCtxt = createContext();
 const DataContext = ({ children }) => {
   const [symb, setSymb] = useState(null);
   const [symbols, setSymbols] = useState([])
+  const [fav, setFav] = useState([{}])
+
 
   const fetchSymbols = async (symb) => {
     try {
       const response = await getStockSymbols(symb);
-      setSymbols(response.data);
-      console.log(symbols);
+      
+      setSymbols(response.data.bestMatches);
+      console.log(response.data)
     } catch (error) {
       console.error(error);
     }

@@ -15,7 +15,6 @@ function App() {
       try {
         if (symb) {
           const data = await getStockData(symb);
-          console.log(data);
           setStockData(data.data);
         }
       } catch (error) {
@@ -31,7 +30,7 @@ function App() {
       <div className="App">
         <Navbar />
         <SearchBox />
-        {stockData ? <div><Slist list={stockData} /></div> : <><p>empty</p></>}
+        <div><Slist /></div>
       </div>
     </Router>
   );
