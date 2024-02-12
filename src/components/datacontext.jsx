@@ -14,12 +14,22 @@ const DataContext = ({ children }) => {
       const response = await getStockSymbols(symb);
       
       setSymbols(response.data.bestMatches);
-      console.log(response.data)
+      
     } catch (error) {
       console.error(error);
     }
   };
 
+  const fetchStock = async (symb) => {
+    try {
+      const response = await getStockData(symb);
+      
+      setSymb(response);
+      
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <DataCtxt.Provider value={{ symb, setSymb, symbols, fetchSymbols }}>
       {children}

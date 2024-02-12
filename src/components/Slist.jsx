@@ -10,7 +10,7 @@ export default function Slist() {
       {symbols ? symbols.map((stock)=> {
         <p>{stock.symbol}</p>
       }) : 'no data'}
-      <p>balls</p>
+      <p>Placeholder</p>
     </div>
   )
 }
