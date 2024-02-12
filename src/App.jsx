@@ -7,9 +7,9 @@ import Slist from './components/Slist';
 import { DataCtxt } from './components/datacontext'; 
 
 function App() {
-  const { symb } = useContext(DataCtxt); 
-  const [stockData, setStockData] = useState(null);
-
+  const { symb, stock } = useContext(DataCtxt); 
+ // const [stockData, setStockData] = useState(null);
+/* 
   useEffect(() => {
     const fetchDataAndLog = async () => {
       try {
@@ -23,14 +23,19 @@ function App() {
     };
 
     fetchDataAndLog();
-  }, [symb]);
+  }, [symb]); */
 
   return (
     <Router>
       <div className="App">
         <Navbar />
         <SearchBox />
-        <div><Slist /></div>
+        {stock ? (
+          <div>placegholder for stock page</div>
+        ) :(
+
+          <div><Slist /></div>
+        ) }
       </div>
     </Router>
   );

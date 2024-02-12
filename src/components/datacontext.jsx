@@ -7,6 +7,8 @@ const DataContext = ({ children }) => {
   const [symb, setSymb] = useState(null);
   const [symbols, setSymbols] = useState([])
   const [fav, setFav] = useState([{}])
+  const [stock, setStock] = useState(null);
+
 
 
   const fetchSymbols = async (symb) => {
@@ -24,14 +26,15 @@ const DataContext = ({ children }) => {
     try {
       const response = await getStockData(symb);
       
-      setSymb(response);
+     // setSymb(response);
+      setStock(response);
       
     } catch (error) {
       console.error(error);
     }
   };
   return (
-    <DataCtxt.Provider value={{ symb, setSymb, symbols, fetchSymbols }}>
+    <DataCtxt.Provider value={{ symb, setSymb, symbols, fetchSymbols, fetchStock }}>
       {children}
     </DataCtxt.Provider>
   );

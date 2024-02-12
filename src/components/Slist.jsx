@@ -10,7 +10,7 @@ export default function Slist() {
       {symbols ? symbols.map((stock)=> {
 <stockapicards stock={stock} />
 }) : 'no data'}
-      <p>Placeholder</p>
+      <p>symbols list placeholer</p>
     </div>
   )
 }
