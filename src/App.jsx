@@ -1,41 +1,18 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/navbar';
-import { getStockData } from './utils/stockapi';
-import SearchBox from './components/SearchBox';
-import Slist from './components/Slist';
-import { DataCtxt } from './components/datacontext'; 
+import Homepage from './pages/homepage';
+import WatchList from './pages/watchlist';
 
 function App() {
-  const { symb, stock } = useContext(DataCtxt); 
- // const [stockData, setStockData] = useState(null);
-/* 
-  useEffect(() => {
-    const fetchDataAndLog = async () => {
-      try {
-        if (symb) {
-          const data = await getStockData(symb);
-          setStockData(data.data);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchDataAndLog();
-  }, [symb]); */
-
   return (
     <Router>
-      <div className="App">
+      <div>
         <Navbar />
-        <SearchBox />
-        {stock ? (
-          <div>placegholder for stock page</div>
-        ) :(
-
-          <div><Slist /></div>
-        ) }
+        <Routes>
+          <Route path='/' element={<Homepage />} />
+          <Route path='/watchlist' element={<WatchList />} />
+        </Routes>
       </div>
     </Router>
   );
