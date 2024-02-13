@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/navbar';
 import Homepage from './pages/homepage';
 import WatchList from './pages/watchlist';
+import Footer from './components/footer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path='/watchlist' element={<WatchList />} />
         </Routes>
       </div>
+      <Footer/>
     </Router>
   );
 }
