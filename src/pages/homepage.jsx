@@ -3,9 +3,9 @@ import SearchBox from '../components/SearchBox';
 import Slist from '../components/Slist';
 import StockDetails from '../components/StockDetails';
 import { DataCtxt } from '../components/DataContext';
-import StockNews from '../components/stockNews';
+import StockNews from '../components/StockNews';
 
-export default function Homepage() {
+export default function HomePage() {
   const { symb, symbols, fetchStock, fav } = useContext(DataCtxt);
   const [selectedStock, setSelectedStock] = useState(null);
 
