@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
 import SearchBox from '../components/SearchBox';
 import Slist from '../components/Slist';
-import StockDetails from '../components/stockdetails';
-import { DataCtxt } from '../components/datacontext';
+import StockDetails from '../components/StockDetails';
+import { DataCtxt } from '../components/DataContext';
 import StockNews from '../components/stockNews';
 
 export default function Homepage() {

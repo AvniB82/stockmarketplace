@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { DataCtxt } from './datacontext';
+import { DataCtxt } from './DataContext';
 
 export default function StockDetails({ stock, onClose }) {
   const { fav, setFav } = useContext(DataCtxt);

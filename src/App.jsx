@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/navbar';
+import Navbar from './components/NavBar';
 import Homepage from './pages/homepage';
-import WatchList from './pages/watchlist';
+import WatchList from './pages/Watchlist';
 import Footer from './components/Footer';
 
 function App() {

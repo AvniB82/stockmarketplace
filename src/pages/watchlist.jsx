@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { DataCtxt } from '../components/datacontext';
+import { DataCtxt } from '../components/DataContext';
 
 export default function WatchList() {
   const { fav } = useContext(DataCtxt);

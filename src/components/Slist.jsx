@@ -1,6 +1,6 @@
 import React from 'react';
 import Stockapicards from './stockapicards';
-import { DataCtxt } from './datacontext';
+import { DataCtxt } from './DataContext';
 
 export default function Slist({ onViewDetails }) {
   const { symbols } = React.useContext(DataCtxt);

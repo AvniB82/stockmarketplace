@@ -1,5 +1,5 @@
 import React from 'react';
-import { DataCtxt } from './datacontext';
+import { DataCtxt } from './DataContext';
 
 export default function stockapicards({ stock }) {
   const { fetchStock } = React.useContext(DataCtxt);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DataCtxt, useContext } from './datacontext';
+import { DataCtxt, useContext } from './DataContext';
 
 export default function SearchBox() {
   const { fetchSymbols } = useContext(DataCtxt);
