@@ -3,6 +3,7 @@ import SearchBox from '../components/SearchBox';
 import Slist from '../components/Slist';
 import StockDetails from '../components/stockdetails';
 import { DataCtxt } from '../components/datacontext';
+import StockNews from '../components/stockNews';
 
 export default function Homepage() {
   const { symb, symbols, fetchStock, fav } = useContext(DataCtxt);
@@ -39,6 +40,11 @@ export default function Homepage() {
       {selectedStock && (
         <StockDetails stock={selectedStock} onClose={clearDetails} />
       )}
+
+      {selectedStock && (
+        <StockNews stock={selectedStock} />
+      )}
+
 
       {symb && !selectedStock && (
         <div>

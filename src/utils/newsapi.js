@@ -1,38 +1,27 @@
-async function fetchData() { 
+import axios from "axios";
+
+async function fetchNews(symbol) { 
 
     const options = {
       method: 'GET',
-      url: 'https://real-time-finance-data.p.rapidapi.com/search',
+      url: 'https://real-time-finance-data.p.rapidapi.com/stock-news',
       params: {
-        query: 'Apple',
+        symbol: symbol,
         language: 'en'
       },
       headers: {
-        'X-RapidAPI-Key': 'df8ad68d0bmsh5bf709bc595a29bp11edeajsnd8a5805de242',
+        'X-RapidAPI-Key': 'b2ba4e68cdmshd97bfc513d8857fp124079jsn6b6cd5bef179',
         'X-RapidAPI-Host': 'real-time-finance-data.p.rapidapi.com'
       }
     }
   try {
     
       const response = await axios.request(options);
-      console.log(response.data);
+      return response.data.data.news
+      
   } catch (error) {
       console.error(error);
     }
   }
-    return(
-      <div className='App'>
-        <button onClick={fetchData}>News</button>
-        {fetchData.map((data) => {
-          return (
-            <Card 
-            key={index}
-            hoverable
-            style={{with: "70%"}}
-            >
-              <Meta title={item.title} description={item.content}/>
-            </Card>
-          )
-        })}
-      </div>
-    );
+
+export default fetchNews;     
