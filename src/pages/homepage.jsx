@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import SearchBox from '../components/SearchBox';
 import Slist from '../components/Slist';
-import { DataCtxt, useContext } from '../components/datacontext';
 import StockDetails from '../components/stockdetails';
+import { DataCtxt } from '../components/datacontext';
 
 export default function Homepage() {
-  const { symb, symbols, fetchStock } = useContext(DataCtxt);
+  const { symb, symbols, fetchStock, fav } = useContext(DataCtxt);
   const [selectedStock, setSelectedStock] = useState(null);
 
   const handleViewDetails = (stock) => {

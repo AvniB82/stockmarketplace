@@ -34,9 +34,10 @@ const DataContext = ({ children }) => {
       console.error(error);
     }
   };
+
   return (
     <DataCtxt.Provider
-      value={{ symb, setSymb, symbols, fetchSymbols, fetchStock }}
+      value={{ symb, setSymb, symbols, fetchSymbols, fetchStock, fav, setFav }}
     >
       {children}
     </DataCtxt.Provider>
