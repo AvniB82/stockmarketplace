@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import fetchNews from "../utils/newsapi"
 import 'bootstrap/dist/css/bootstrap.css'
 import Card from 'react-bootstrap/Card'
-import Button  from 'react-bootstrap/button'
+import Button  from 'react-bootstrap/Button'
 
 
 
