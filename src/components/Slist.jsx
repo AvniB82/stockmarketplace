@@ -1,5 +1,5 @@
 import React from 'react';
-import Stockapicards from './stockapicards';
+import Stockapicards from './StockApiCards';
 import { DataCtxt } from './DataContext';
 
 export default function Slist({ onViewDetails }) {
