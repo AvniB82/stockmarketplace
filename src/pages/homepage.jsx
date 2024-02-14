@@ -22,19 +22,37 @@ export default function Homepage() {
       <SearchBox />
 
       {symbols && symbols.length > 0 && !selectedStock && (
-        <div>
-          <h2>Best Matches</h2>
-          <Slist onViewDetails={handleViewDetails} />
-          {symbols.map((match) => (
-            <div key={match['1. symbol']}>
-              <p>Symbol: {match['1. symbol']}</p>
-              <p>Name: {match['2. name']}</p>
-              <button onClick={() => handleViewDetails(match)}>
-                View Details
-              </button>
+        
+        // this has been edited out because a card from bootstrap was added to style the page.
+
+        // <div>
+        //   <h2>Best Matches</h2>
+        //   <Slist onViewDetails={handleViewDetails} />
+        //   {symbols.map((match) => (
+        //     <div key={match['1. symbol']}>
+        //       <p>Symbol: {match['1. symbol']}</p>
+        //       <p>Name: {match['2. name']}</p>
+        //       <button onClick={() => handleViewDetails(match)}>
+        //         View Details
+        //       </button>
+        //     </div>
+        //   ))}
+        // </div>
+
+          <div className='container'>
+
+            <h2>Best Matches</h2>
+            <Slist onViewDetails={handleViewDetails} />
+            {symbols.map((match) => (
+              <div key={match['1. symbol']} className="card" style={{ width: '25rem' }}>
+                <div className="card-body">
+                  <p className="card-title"> {match['1. symbol']} </p>
+                  <p className="card-subtitle mb-2 text-body-secondary"> {match['2. name']}</p>
+                  <button onClick={() => handleViewDetails(match)}>View Details</button>
+                </div>
+              </div>
+            ))}
             </div>
-          ))}
-        </div>
       )}
 
       {selectedStock && (
