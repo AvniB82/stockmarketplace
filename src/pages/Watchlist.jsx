@@ -1,12 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { DataCtxt } from '../components/DataContext';
 
 export default function WatchList() {
   const { fav, setFav } = useContext(DataCtxt);
 
+  useEffect(() => {
+    const storedWatchlist = localStorage.getItem('watchlist');
+    if (storedWatchlist) {
+      setFav(JSON.parse(storedWatchlist));
+    }
+  }, [setFav]);
+
   const removeFromWatchlist = (symbol) => {
-    // Placeholder for future functionality to remove from watchlist
-    console.log(`Removing ${symbol} from the watchlist`);
+    const updatedFav = fav.filter((favStock) => favStock.symbol !== symbol);
+    setFav(updatedFav);
+    localStorage.setItem('watchlist', JSON.stringify(updatedFav)); // Save to localStorage
   };
 
   return (
@@ -16,7 +24,7 @@ export default function WatchList() {
           fav.length > 0 &&
           fav.map((stock, index) => (
             <div
-              className='card mb-3 mt-4'
+              className='card mb-3 mt-3'
               style={{ maxWidth: '80%', margin: '0 auto' }}
               key={index}
             >

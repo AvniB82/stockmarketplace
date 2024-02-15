@@ -1,22 +1,22 @@
 import React, { useContext, useState } from 'react';
 import { DataCtxt } from './DataContext';
 
-export default function StockDetails({ stock, onClose }) {
+const StockDetails = ({ stock, onClose }) => {
   const { fav, setFav } = useContext(DataCtxt);
   const [selectedStock, setSelectedStock] = useState(stock);
 
   const addToWatchlist = () => {
-    if (
-      !fav.some((favStock) => favStock.symbol === selectedStock['1. symbol'])
-    ) {
-      setFav((prevFav) => [
-        ...prevFav,
+    if (!fav.some((favStock) => favStock.symbol === stock['1. symbol'])) {
+      const newFav = [
+        ...fav,
         {
-          name: selectedStock['2. name'],
-          symbol: selectedStock['1. symbol'],
-          type: selectedStock['3. type'],
+          name: stock['2. name'],
+          symbol: stock['1. symbol'],
+          type: stock['3. type'],
         },
-      ]);
+      ];
+      setFav(newFav);
+      localStorage.setItem('watchlist', JSON.stringify(newFav)); // Save to localStorage
     }
   };
 
@@ -42,4 +42,6 @@ export default function StockDetails({ stock, onClose }) {
       </div>
     </div>
   );
-}
+};
+
+export default StockDetails;
