@@ -18,55 +18,44 @@ export default function HomePage() {
   };
 
   return (
-    <div>
+    <div className='container'>
       <SearchBox />
 
       {symbols && symbols.length > 0 && !selectedStock && (
-        
-        // this has been edited out because a card from bootstrap was added to style the page.
+        <div>
+          <h2 className='mt-4 mb-3'></h2>
 
-        // <div>
-        //   <h2>Best Matches</h2>
-        //   <Slist onViewDetails={handleViewDetails} />
-        //   {symbols.map((match) => (
-        //     <div key={match['1. symbol']}>
-        //       <p>Symbol: {match['1. symbol']}</p>
-        //       <p>Name: {match['2. name']}</p>
-        //       <button onClick={() => handleViewDetails(match)}>
-        //         View Details
-        //       </button>
-        //     </div>
-        //   ))}
-        // </div>
-
-          <div className='container'>
-
-            <h2>Best Matches</h2>
-            <Slist onViewDetails={handleViewDetails} />
-            {symbols.map((match) => (
-              <div key={match['1. symbol']} className="card" style={{ width: '25rem' }}>
-                <div className="card-body">
-                  <p className="card-title"> {match['1. symbol']} </p>
-                  <p className="card-subtitle mb-2 text-body-secondary"> {match['2. name']}</p>
-                  <button onClick={() => handleViewDetails(match)}>View Details</button>
-                </div>
+          {symbols.map((match) => (
+            <div
+              className='card mb-3'
+              key={match['1. symbol']}
+              style={{ height: '50px' }}
+            >
+              <div className='card-body d-flex justify-content-between align-items-center'>
+                <h5 className='card-title' style={{ fontSize: '1rem' }}>
+                  {match['1. symbol']} - {match['2. name']}
+                </h5>
+                <button
+                  className='btn btn-primary btn-sm'
+                  onClick={() => handleViewDetails(match)}
+                >
+                  View Details
+                </button>
               </div>
-            ))}
             </div>
+          ))}
+        </div>
       )}
 
       {selectedStock && (
         <StockDetails stock={selectedStock} onClose={clearDetails} />
       )}
 
-      {selectedStock && (
-        <StockNews stock={selectedStock} />
-      )}
-
+      {selectedStock && <StockNews stock={selectedStock} />}
 
       {symb && !selectedStock && (
         <div>
-          <h2>Selected Stock Details</h2>
+          <h2 className='mt-4 mb-3'>Selected Stock Details</h2>
         </div>
       )}
     </div>
