@@ -34,7 +34,7 @@ export default function SearchBox() {
 
   return (
     <div className='hero-banner'>
-      <img src="./src/images/logo.png" alt="Logo" className="logo" />
+      <img src="public/images/logo.png" alt="Logo" className="logo" />
       <div className="search-container">
         <form className='form' onSubmit={handleFormSubmit}>
           <input
@@ -47,7 +47,7 @@ export default function SearchBox() {
           <button type='submit' className="button">Search</button>
         </form>
         {error && (
-          <div className="error-message" style={{ color: 'white', textAlign: 'center' }}>{error}</div>
+          <div className="error-message" style={{ color: 'red', textAlign: 'center' }}>{error}</div>
         )}
       </div>
     </div>
