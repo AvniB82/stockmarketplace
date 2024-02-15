@@ -34,7 +34,7 @@ export default function SearchBox() {
 
   return (
     <div className='hero-banner'>
-      <img src="public/images/logo.png" alt="Logo" className="logo" />
+      <img src="images/logo.png" alt="Logo" className="logo" />
       <div className="search-container">
         <form className='form' onSubmit={handleFormSubmit}>
           <input
