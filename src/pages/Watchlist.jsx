@@ -2,21 +2,36 @@ import React, { useContext } from 'react';
 import { DataCtxt } from '../components/DataContext';
 
 export default function WatchList() {
-  const { fav } = useContext(DataCtxt);
+  const { fav, setFav } = useContext(DataCtxt);
+
+  const removeFromWatchlist = (symbol) => {
+    // Placeholder for future functionality to remove from watchlist
+    console.log(`Removing ${symbol} from the watchlist`);
+  };
 
   return (
     <div>
-      <h1>Watchlist</h1>
-
       <div>
         {fav &&
           fav.length > 0 &&
           fav.map((stock, index) => (
-            <React.Fragment key={index}>
-              <p>{stock.name}</p>
-              <p>{stock.symbol}</p>
-              <p>{stock.type}</p>
-            </React.Fragment>
+            <div
+              className='card mb-3 mt-4'
+              style={{ maxWidth: '80%', margin: '0 auto' }}
+              key={index}
+            >
+              <div className='card-body d-flex justify-content-between align-items-center'>
+                <h5 className='card-title' style={{ fontSize: '1rem' }}>
+                  {stock.name} - {stock.symbol}
+                </h5>
+                <button
+                  className='btn btn-danger btn-sm'
+                  onClick={() => removeFromWatchlist(stock.symbol)}
+                >
+                  Remove from Watchlist
+                </button>
+              </div>
+            </div>
           ))}
       </div>
     </div>
