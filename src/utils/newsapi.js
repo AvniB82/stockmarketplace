@@ -7,13 +7,13 @@ async function fetchNews(symbol) {
       url: 'https://real-time-finance-data.p.rapidapi.com/stock-news',
       params: {
         symbol: symbol,
-        language: 'en'
+        language: 'en',
       },
       headers: {
-        'X-RapidAPI-Key': 'b2ba4e68cdmshd97bfc513d8857fp124079jsn6b6cd5bef179',
-        'X-RapidAPI-Host': 'real-time-finance-data.p.rapidapi.com'
-      }
-    }
+        'X-RapidAPI-Key': '0915ae37d3msh0d404d457e1e49cp17010djsnaf0d5e66e57f',
+        'X-RapidAPI-Host': 'real-time-finance-data.p.rapidapi.com',
+      },
+    };
   try {
     
       const response = await axios.request(options);

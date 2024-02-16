@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import { DataCtxt, useContext } from './DataContext';
 import './SearchBox.css';
 
-
 export default function SearchBox() {
   const { fetchSymbols } = useContext(DataCtxt);
   const [searchTerm, setSearchTerm] = useState('');
-  const [error, setError] = useState('');
 
   const handleInputChange = (event) => {
     const inputValue = event.target.value;
@@ -17,25 +15,17 @@ export default function SearchBox() {
     event.preventDefault();
 
     try {
-      
       const response = await fetchSymbols(searchTerm);
-
-      if (response.data.bestMatches.length === 0) {
-        setError('No matching stocks found. Please enter a valid symbol.');
-      } else {
-        setError('');
-      }
+      console.log(response);
     } catch (error) {
-      setError(
-        'There are no matching stocks or free API limit has been reached'
-      );
+      console.error('An error occurred during symbol search:', error);
     }
   };
 
   return (
     <div className='hero-banner'>
-      <img src="images/logo.png" alt="Logo" className="logo" />
-      <div className="search-container">
+      <img src='images/logo.png' alt='Logo' className='logo' />
+      <div className='search-container'>
         <form className='form' onSubmit={handleFormSubmit}>
           <input
             type='text'
@@ -44,12 +34,11 @@ export default function SearchBox() {
             onChange={handleInputChange}
             className='input-field'
           />
-          <button type='submit' className="button">Search</button>
+          <button type='submit' className='button'>
+            Search
+          </button>
         </form>
-        {error && (
-          <div className="error-message" style={{ color: 'red', textAlign: 'center' }}>{error}</div>
-        )}
       </div>
     </div>
   );
-        }
+}
